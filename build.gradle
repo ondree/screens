@@ -1,14 +1,14 @@
 buildscript {
-    ext.kotlinVersion = '1.2.10'
+    ext.kotlinVersion = '1.5.21'
     ext.junitPlatformVersion = '1.0.2'
 
     repositories {
         google()
-        jcenter()
+        gradlePluginPortal()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:4.2.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     }
 }
@@ -16,41 +16,35 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") }
+        maven { url = uri("https://plugins.gradle.org/m2/") }
+        maven { url = uri("https://clojars.org/repo/") }
     }
 }
 
 ext {
-    projectCompileSdkVersion = 26
-    projectMinSdkVersion = 12
-    projectTargetSdkVersion = 26
+    projectCompileSdkVersion = 30
+    projectMinSdkVersion = 21
+    projectTargetSdkVersion = 30
 
     androidSupportVersion = '25.3.1'
-    ankoVersion = '0.10.4'
     daggerVersion = '2.10'
     spekVersion = '1.1.5'
 
     // Core libs
-    supportCoreUi = "com.android.support:support-core-ui:$androidSupportVersion"
-    supportAppCompat = "com.android.support:appcompat-v7:$androidSupportVersion"
-    supportDesign = "com.android.support:design:$androidSupportVersion"
+    supportCoreUi = "androidx.legacy:legacy-support-core-ui:1.0.0-alpha1"
+    supportAppCompat = "androidx.appcompat:appcompat:1.0.2"
+    supportDesign = "com.google.android.material:material:1.0.0"
     kotlinReflect = "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
     kotlinTest = "org.jetbrains.kotlin:kotlin-test:$kotlinVersion"
-    ankoCommons = "org.jetbrains.anko:anko-commons:$ankoVersion"
-    ankoSdk15 = "org.jetbrains.anko:anko-sdk15:$ankoVersion"
-    ankoSdk21 = "org.jetbrains.anko:anko-sdk21:$ankoVersion"
-    ankoAppCompat = "org.jetbrains.anko:anko-appcompat-v7:$ankoVersion"
-    ankoDesign = "org.jetbrains.anko:anko-design:$ankoVersion"
+    recyclerView = "androidx.recyclerview:recyclerview:1.1.0"
     // Rx libs
     rxJava = 'io.reactivex.rxjava2:rxjava:2.0.9'
     rxAndroid = 'io.reactivex.rxjava2:rxandroid:2.0.1'
     rxRelay = 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
     // Testing libs
-    spekApi = "org.jetbrains.spek:spek-api:$spekVersion"
-    spekJUnitPlatformEngine = "org.jetbrains.spek:spek-junit-platform-engine:$spekVersion"
-    spekSubjectExtension = "org.jetbrains.spek:spek-subject-extension:$spekVersion"
-    jUnitJupiterApi = "org.junit.jupiter:junit-jupiter-api:5.0.0"
     jUnitPlatformRunner = "org.junit.platform:junit-platform-runner:1.0.0"
     mockitoKotlin = 'com.nhaarman:mockito-kotlin:1.4.0'
     hamkrest = 'com.natpryce:hamkrest:1.4.0.0'

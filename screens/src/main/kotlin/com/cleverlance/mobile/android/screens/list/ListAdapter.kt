@@ -1,7 +1,7 @@
 package com.cleverlance.mobile.android.screens.list
 
-import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 
 abstract class ListAdapter<
         V : ListItemView<P>,

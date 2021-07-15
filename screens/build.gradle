@@ -22,11 +22,10 @@ dependencies {
     compileOnly supportCoreUi
     compileOnly supportDesign
     testImplementation supportDesign
-    compileOnly ankoCommons
-    compileOnly ankoSdk15
 
     // Core libs
     implementation kotlinStdLib
+    implementation recyclerView
     // Rx libs
     implementation rxJava
     implementation rxAndroid
@@ -34,11 +33,5 @@ dependencies {
 
     testImplementation kotlinReflect
     testImplementation kotlinTest
-    testImplementation spekApi
-    testImplementation spekJUnitPlatformEngine
-    testImplementation spekSubjectExtension
-    testImplementation jUnitJupiterApi
     testImplementation jUnitPlatformRunner
-    testImplementation mockitoKotlin
-    testImplementation hamkrest
 }
